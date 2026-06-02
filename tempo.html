@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Tempo ❤️</title>
+
+<style>
+
+body{
+  background:#ff758c;
+  color:white;
+  font-family:Arial;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  height:100vh;
+}
+
+#contador{
+  font-size:2rem;
+  margin-top:20px;
+}
+
+button{
+  margin-top:30px;
+  padding:15px 25px;
+  border:none;
+  border-radius:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Nosso Tempo ❤️</h1>
+
+<div id="contador"></div>
+
+<a href="index.html">
+<button>⬅ Voltar</button>
+</a>
+
+<script>
+
+const namoro = new Date("2026-02-07");
+
+function atualizar(){
+
+  const hoje = new Date();
+
+  let anos = hoje.getFullYear() - namoro.getFullYear();
+  let meses = hoje.getMonth() - namoro.getMonth();
+  let dias = hoje.getDate() - namoro.getDate();
+
+  if(dias < 0){
+    meses--;
+    
+    const ultimoMes = new Date(
+      hoje.getFullYear(),
+      hoje.getMonth(),
+      0
+    ).getDate();
+
+    dias += ultimoMes;
+  }
+
+  if(meses < 0){
+    anos--;
+    meses += 12;
+  }
+
+  document.getElementById("contador")
+  .innerHTML =
+  `❤️ ${meses} meses e ${dias} dias juntos ❤️`;
+}
+
+atualizar();
+
+</script>
+
+</body>
+</html>
